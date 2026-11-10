@@ -178,7 +178,7 @@ jobs:
         run: |
           # Orphan branch = no parent commits, so gh-pages always contains
           # exactly ONE commit no matter how many times this workflow runs.
-          git checkout --orphan gh-pages TODO  # TODO: the branch GitHub Pages serves the page from
+          git checkout --orphan gh-pages  # TODO: the branch GitHub Pages serves the page from
           git rm -rf --quiet .
           # git rm only removes *tracked* files; also purge untracked and
           # gitignored build leftovers (_data/, _output/, docs/, .venv/) so
@@ -187,4 +187,4 @@ jobs:
           cp -r "$RUNNER_TEMP/site/." .
           git add -A
           git commit -m "Deploy SVIX monitor $(date -u +'%Y-%m-%d %H:%M UTC')"
-          git push --force origin gh-pages TODO  # TODO: the same branch
+          git push --force origin gh-pages  # TODO: the same branch
